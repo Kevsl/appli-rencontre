@@ -19,7 +19,16 @@ export const RootNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Group>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            animation: "slide_from_right",
+            headerStyle: tailwind("bg-indigo-400"),
+            headerTintColor: "#FFF",
+            headerTitleStyle: tailwind("text-xl"),
+          }}
+        />
         <Stack.Screen
           name="Profile"
           component={Profile}
@@ -27,6 +36,7 @@ export const RootNavigator = () => {
             animation: "slide_from_right",
             headerStyle: tailwind("bg-indigo-400"),
             headerTintColor: "#FFF",
+            headerTitleStyle: tailwind("text-xl"),
           }}
         />
       </Stack.Group>
