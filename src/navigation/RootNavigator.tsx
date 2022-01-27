@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home } from "~/screens/Home";
 import { Profile } from "~/screens/Profile";
 import React from "react";
+import { tailwind } from "tailwind";
 
 export type RouteParams = {
   Home: undefined;
@@ -24,6 +25,8 @@ export const RootNavigator = () => {
           component={Profile}
           options={{
             animation: "slide_from_right",
+            headerStyle: tailwind("bg-indigo-4n00"),
+            headerTintColor: "#FFF",
           }}
         />
       </Stack.Group>
