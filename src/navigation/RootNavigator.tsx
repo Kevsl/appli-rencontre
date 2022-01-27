@@ -25,7 +25,7 @@ export const RootNavigator = () => {
           component={Profile}
           options={{
             animation: "slide_from_right",
-            headerStyle: tailwind("bg-indigo-4n00"),
+            headerStyle: tailwind("bg-indigo-400"),
             headerTintColor: "#FFF",
           }}
         />
