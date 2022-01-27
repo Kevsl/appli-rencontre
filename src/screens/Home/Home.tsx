@@ -1,3 +1,5 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { FlatList, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -7,6 +9,7 @@ import {
   Profile,
   ProfileListItem,
 } from "~/components/ProfileListItem/ProfileListItem";
+import { RouteParams } from "~/navigation/RootNavigator";
 
 interface HomeProps {}
 
@@ -63,9 +66,16 @@ const profilesList: Profile[] = [
 ];
 
 export const Home: React.FunctionComponent<HomeProps> = ({}) => {
+  const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
   const renderListItem = ({ item }: { item: Profile }) => {
     const onProfilePress = () => {
       console.log(item.name);
+      navigation.navigate("Profile", {
+        id: item.id,
+        title: item.name,
+        image: item.photo,
+        description: item.description,
+      });
     };
     return (
       <ProfileListItem key={item.id} onPress={onProfilePress} profile={item} />
